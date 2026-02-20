@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Villains</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<h2>Villains by Jaden Lopez</h2>
+
+<form>
+    <label for="form1_villain">Funny Man </label>
+    <input type="password" id="form1_villain" name="form1_villain" value="Joker"> <br>
+
+    <label for="form1_t">Guess the villain </label>
+    <input type="text" id="form1_t" name="form1_t" autofocus> <br>
+
+    <button type="button" onclick="checkVillain()">Check the guess</button>
+</form>
+
+<p id="result">Caught: 0 | Got Away: 0</p>
+
+<script> 
+// global variables
+var caught = 0;
+var gotAway = 0;
+
+function checkVillain() {
+    console.log("Checking the guess...");
+
+    let villain = document.getElementById("form1_villain").value;
+    let guess = document.getElementById("form1_t").value;
+    let out = document.getElementById("result");
+
+    if (villain === guess) {
+        caught = caught + 1;
+        alert("You caught them");
+    } else {
+        gotAway = gotAway + 1;
+        alert("Maybe next time");
+    }
+
+    out.innerHTML = "Caught: " + caught + " | Got Away: " + gotAway;
+}
+</script>
+
+</body>
+</html>
