@@ -28,6 +28,20 @@
 
 <hr>
 
+<form>
+    <input type="radio" id="op_pow" name="operation" value="exponent" onclick="chooseOp()">
+    <label for="op_pow">power</label><br>
+
+    <input type="radio" id="op_sum" name="operation" value="add" onclick="chooseOp()">
+    <label for="op_sum">sum</label><br>
+
+    <input type="radio" id="op_mod" name="operation" value="mod" onclick="chooseOp()">
+    <label for="op_mod">mod</label><br>
+</form>
+
+
+<p id="result_op">Results here. </p>
+
 <script> 
 
 function doTax (){
@@ -54,6 +68,27 @@ function doTax (){
     out.innerHTML = "Taxes are: " + taxTable;
 }
 
+function chooseOp() {
+    let income = parseFloat(document.getElementById("income").value)
+    let baseRate = parseFloat(document.getElementById("baseRate").value)
+
+    let resultElement = document.getElementById("result_op");
+    let resultValue = 0;
+    let text = "";
+
+    if(document.getElementById("op_pow").checked) {
+        resultValue = Math.pow(income, baseRate);
+        text = income + " to the power of " + baseRate + " is: " + resultValue;
+    } else if(document.getElementById("op_sum").checked) {
+        resultValue = income + baseRate;
+        text = income + " plus " + baseRate + " is " + resultValue;
+    } else if(document.getElementById("op_mod").checked) {
+        resultValue = income % baseRate;
+        text = income + " % " + baseRate + " is " + resultValue;
+    
+    }
+    resultElement.innerHTML = text;
+}
 </script>
 
 </body>
