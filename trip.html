@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cruise Travel Planner</title>
+    <meta charset="utf-8">
+</head>
+ 
+<body>
+
+<h2>Jaden's travel planner</h2>
+
+<form>
+    <input type="checkbox" id="check_cari" value="True">
+    <label for="check_cari">Caribbean</label><br>
+
+    <input type="checkbox" id="check_medi" value="True">
+    <label for="check_medi">Mediterranean</label><br>
+
+    <input type="checkbox" id="check_balt" value="False">
+    <label for="check_balt">Baltic</label><br>
+
+    <input type="button" onclick="choices()" value="Cruise Choices">
+</form>
+
+<hr>
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+var my_trip = {};
+function choices(){
+    my_trip = {};
+
+    my_trip.cari = document.getElementById("check_cari").checked;
+    my_trip.medi = document.getElementById("check_medi").checked;
+    my_trip.balt = document.getElementById("check_balt").checked;
+
+    document.getElementById("result").innerHTML = JSON.stringify(my_trip);
+    
+}
+</script>
+
+</body>
+</html> 
